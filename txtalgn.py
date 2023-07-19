@@ -7,7 +7,7 @@ Your task is to replace the blank (______) with rjust, ljust or center.
 # # Constraints
 # """The thickness must be an odd number.
 # 0 < thickness < 50"""
-# # Output Format
+#  Output Format
 # """Output the desired logo."""
 
 def logo():
