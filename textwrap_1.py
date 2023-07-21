@@ -16,6 +16,7 @@ string: a single string with newline characters ('\n') where the breaks should b
 import textwrap
 
 def wrap(string, max_width):
+
     """
     This function takes a string and a maximum width and returns the string
     wrapped at the specified width using the textwrap module.
@@ -33,5 +34,10 @@ if __name__ == '__main__':
     max_width = int(max_width)
 
     # Wrap the string and print the result
+    return textwrap.fill(string, max_width)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+
     result = wrap(string, max_width)
     print(result)
