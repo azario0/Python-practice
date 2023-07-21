@@ -11,7 +11,6 @@ wrap has the following parameters:
 string string: a long string
 int max_width: the width to wrap to
 Returns
-
 string: a single string with newline characters ('\n') where the breaks should be
 """
 import textwrap
