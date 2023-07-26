@@ -14,6 +14,8 @@ def make_prediction():
     numbers = generate_lotto_numbers()
     prediction = pd.DataFrame({
         "Number": numbers,
+
+        "Probability_1": 1/45 ** 6
         "Probability": [1/45 for _ in range(6)]
     })
     return prediction
