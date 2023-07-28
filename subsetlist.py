@@ -1,13 +1,15 @@
-from itertools import combinations
+def subsets(list1):
+    from itertools import combinations
+    subsets = [list(comb) for comb in combinations(list1, 2)]
+    return subsets
 
-def print_subsets(lst):
-    subsets = [list(comb) for comb in combinations(lst, 2)]
-    #reverse the list
-    subsets.reverse()
-    print(subsets)
+def final_subsets(list1, size_of_subsets):
+    all_subsets = subsets(list1)
+    final_subsets = [sub for sub in all_subsets if len(sub) == size_of_subsets]
+    final_subsets.reverse()
+    return final_subsets
 
-if __name__ == '__main__':
-    list1 = input("Enter the list of numbers: ")
-    list1 = list(map(int, list1.split()))
-    print_subsets(list1)
-
+if __name__ == "__main__":
+    list1 = list(map(int, input().split()))
+    size_of_subsets = int(input())
+    print(final_subsets(list1, size_of_subsets))
