@@ -23,8 +23,10 @@ S has at least 3 distinct characters
 def company_logo(s):
     from collections import Counter
     c = Counter(s)
-    for i in c.most_common(3):
-        print(*i)
+    most_common = c.most_common(3)
+    most_common = sorted(most_common, key=lambda x: (-x[1], x[0]))
+    for i in most_common:
+        print(i[0], i[1])
 if __name__ == '__main__':
     s = input()
     company_logo(s)
