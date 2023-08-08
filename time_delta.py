@@ -42,3 +42,15 @@ if __name__ == '__main__':
         fptr.write(delta + '\n')
     fptr.close()
     
+""" if you want to run the code in your local machine, comment out the above lines and uncomment the below lines
+```python
+if __name__ == '__main__':
+    t = int(input())
+    for t_itr in range(t):
+        t1 = input()
+        t2 = input()
+        delta = time_delta(t1, t2)
+        print(delta)    
+```
+    
+"""
