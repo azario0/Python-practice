@@ -12,7 +12,7 @@ def lattice_paths(n, m):
         for j in range(1, m+1):
             paths[i][j] = paths[i-1][j] + paths[i][j-1]
             #return the value at the bottom right corner of the array
-    return paths[n][m]
+    return paths[n][m] % (10**9 + 7)
 
 # Get input from user
 t = int(input("Enter the number of test cases: "))
