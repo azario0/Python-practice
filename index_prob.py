@@ -21,10 +21,15 @@ Constraints
 1 <= N <= 10
 1 <= K <= N
 """
-def prob(n, k):
-    return 1 - (1 - (1/n))**k
+from itertools import combinations
+n = int(input())
+s = input().split()
+k = int(input())
+combs = list(combinations(s, k))
+a = [e for e in combs if 'a' in e]
+prob = len(a)/len(combs)
+
+
 if __name__ == '__main__':
-    n = int(input())
-    s = input().split()
-    k = int(input())
-    print(prob(n, k))
+    #round up to 3 decimal places
+    print(round(prob, 4))
