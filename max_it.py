@@ -13,9 +13,8 @@ if __name__ == '__main__':
     for _ in range(k):
         lst = list(map(int, input().split()))[1:]
         lists.append(lst)
-    max_sum = 0
+    max_sum = -1
     for combination in product(*lists):
         s = sum([x**2 for x in combination])%m
-        if s > max_sum:
-            max_sum = s
+        max_sum = max(max_sum, s)
     print(max_sum)
