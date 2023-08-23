@@ -15,63 +15,38 @@ Constraints
 1 <= T <= 10
 0 <= N <= 10^12
 """
-# Define a dictionary of words representing the numbers 1 to 10
-words = {i: word for i, word in enumerate(["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"])}
+digits = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+tens = ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+other = [(10**12, "Trillion"), (10**9, "Billion"), (10**6, "Million"), (1000, "Thousand"), (100, "Hundred")]
 
-# Define a dictionary of words representing the numbers 11 to 19
-teens = {i: word for i, word in enumerate(["Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"], start=11)}
-
-# Define a dictionary of words representing the tens place of numbers
-tens = {i: word for i, word in enumerate(["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"])}
-
-# Define a list of words representing the thousands, millions, billions, and trillions place of numbers
-suffixes = ["", "Thousand", "Million", "Billion", "Trillion"]
-
-def num_to_words(n):
-    # If the input number is 0, return "Zero"
-    if n == 0:
-        return "Zero"
+import re
+def get_word(n):
+    result = ""
+    for t in other:
+        tmp = n // t[0]
+        if (tmp > 0):
+            result += get_word(tmp) + t[1]
+            n -= (tmp * t[0])
     
-    # Convert the input number to a string and split it into groups of three digits
-    num_str = str(n)
-    groups = []
-    while num_str:
-        groups.append(num_str[-3:])
-        num_str = num_str[:-3]
+    for t in range(len(tens)-1, -1, -1):
+        tmp = n // ((t + 2) * 10)
+        if (tmp > 0):
+            result += tens[t]
+            n -= (tmp * (t+2) * 10)
+            break
     
-    # Convert each group of three digits into its corresponding word representation
-    words_list = []
-    for i, group in enumerate(groups):
-        group_words = []
-        group = int(group)
-        if group >= 100:
-            group_words.append(words[group // 100] + " Hundred")
-            group %= 100
-        if group >= 11 and group <= 19:
-            group_words.append(teens[group])
-        elif group == 10 or group >= 20:
-            if group % 10 != 0:
-                group_words.append(tens[group // 10] + " " + words[group % 10])
-            else:
-                group_words.append(tens[group // 10])
-        elif group >= 1 and group <= 9:
-            group_words.append(words[group])
-        if group != 0:
-            group_words.append(suffixes[i])
-        words_list.append(" ".join(group_words))
-    
-    # Reverse the list of word representations and join them together with spaces
-    words_list.reverse()
-    return " ".join(words_list)
-
-if __name__ == "__main__":
-    # Read the number of test cases from standard input
-    t = int(input())
-    
-    # Loop through each test case
-    for i in range(t):
-        # Read the input number from standard input
-        n = int(input())
+    for t in range(len(digits)):
+        if (n == (t+1)):
+            result += digits[t]
+            break
         
-        # Convert the input number to its corresponding word representation and write it to standard output
-        print(num_to_words(n))
+    return result
+
+for _ in range(int(input())):
+    n = int(input())
+    s = get_word(n)
+    l = re.split('(?<=.)(?=[A-Z])', s)
+    res = ""
+    for i in l:
+        res += i + " "
+    print(res[:-1])
