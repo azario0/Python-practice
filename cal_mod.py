@@ -14,7 +14,7 @@ Constraints
 import calendar
 
 def main():
-    date = input().split()
+    date = input('Enter the date as the following format MM DD YYYY  Separated by only one space : ').split(' ')
     month = int(date[0])
     day = int(date[1])
     year = int(date[2])

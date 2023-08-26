@@ -11,7 +11,7 @@ class Car:
         """ returns a string that represents the object. It uses an  f-string to format the output string string based on the instance variables `max_speed` and `units`"""
         return f"Car with  maximum speed of {self.max_speed} {self.units}"
 
-car = Car(int(input()), "km/h")
+car = Car(int(input('Enter the maximum speed of the car in KM/H : ')), "km/h")
 print(car)
-car_1 = Car(int(input()), "mph")
+car_1 = Car(int(input("Enter the maximum speed of the car in MPH : ")), "mph")
 print(car_1)

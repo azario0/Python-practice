@@ -19,6 +19,6 @@ def solve(s):
         s = s.replace(i,i.capitalize())
     return s
 if __name__ == '__main__':
-    s = input()
+    s = input('Enter your full name : ')
     result = solve(s)
     print(result)
