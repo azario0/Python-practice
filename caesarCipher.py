@@ -12,4 +12,9 @@ def caesarCipher(s, k):
         else:
             encrypted += c
     return encrypted
-print(caesarCipher(s,k))
+print('Welcome to Julius Caesar encription .')
+input_string = input("Enter the text that you want to encript : ")
+shift_amount = int(input("Enter the shift amount: "))
+    
+encrypted_result = caesarCipher(input_string, shift_amount)
+print("Encrypted text:", encrypted_result)

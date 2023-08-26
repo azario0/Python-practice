@@ -11,5 +11,5 @@ class Boat:
         """  returnd a string that represents the object it uses an f-string to fformat the output string based on the instance variables `max_speed`"""
         return f"Boat with maximum speed of {self.max_speed} knots"
     
-boat = Boat(int(input()))
+boat = Boat(int(input("Enter the max speed of the boat (in numbers ) : ")))
 print(boat)

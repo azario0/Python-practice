@@ -51,7 +51,7 @@ if __name__ == '__main__':
     t = int(input().strip())
 
     for t_itr in range(t):
-        s = input()
+        s = input('Enter a string containing {} , [] or () in any order you want : ')
 
         result = is_balanced(s)
 

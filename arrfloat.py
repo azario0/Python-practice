@@ -1,6 +1,6 @@
 """Arrays
 
-convert lis to arrays and float it
+convert list to numpy array and turn it to float 
 """
 
 
@@ -13,6 +13,6 @@ def arrays(arr):
     np_arr = np_arr[::-1]
     return np_arr
 
-arr = input().strip().split(' ')
+arr = input('Enter float or integers seperated by space : ').strip().split(' ')
 result = arrays(arr)
 print(result)
