@@ -19,8 +19,18 @@ def sum_of_digits(n):
         n = n//10
     return sum
 
+# Second solution :
+def sum_of_digits_2(n):
+    holder=str(n)
+    result=0
+    for i in holder:
+        result+=int(i)
+    return result
+
+
+
 if __name__ == '__main__':
-    t = int(input())
+    t = int(input('Enter the number of times you want to loop this program in : '))
     for i in range(t):
-        n = int(input())
+        n = int(input('Enter the number : '))
         print(sum_of_digits(2**n))

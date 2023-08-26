@@ -21,8 +21,8 @@ def angle(theta):
     return round(math.degrees(math.atan(theta)))
 
 def main():
-    AB = int(input())
-    BC = int(input())
+    AB = int(input('Enter the length of AB : '))
+    BC = int(input('Enter the length of BC : '))
     print(angle(AB/BC), chr(176), sep='')
 
 if __name__ == '__main__':
